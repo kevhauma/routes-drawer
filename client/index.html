@@ -1,0 +1,86 @@
+<html>
+
+<head>
+    <title>data</title>
+    <style>
+        canvas,
+        body {
+            color: #000;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        .overlay {
+            padding: 20px;
+            background-color: rgba(20,20,20,0.2);
+            position: absolute;
+            z-index: 5;
+        }
+        .top-right{            
+            top: 5;
+            right: 5;
+        }
+        .middle{
+            position:absolute;
+                     top:50%;
+                     left:50%;
+                     z-index:1002;
+                     overflow:auto;
+                     width:400px;
+                     height:400px;
+                     margin-left:-200px;
+                     margin-top:-200px
+        }
+        .stravaButton{
+            padding: 20px;
+            background-color: rgb(252, 82, 0);
+        }
+        a{
+            color:white;
+            text-decoration: none;
+        }
+        .deletebutton{
+            padding:5px;
+            border-radius: 3px;
+            background-color: orangered;
+        }
+        .deletebutton:hover{
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .path{
+            display: flex;
+            justify-content: space-around;
+        }
+        .path div{
+            width:100%;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
+    <script src="./getParams.js"></script>
+    <script src="./coordsToPxls.js"></script>
+    <script src="./path.js"></script>
+    <script src="./polyline.js"></script>
+    <script src="./strava.js"></script>    
+    <script src="./controls.js"></script>
+    <script src="./script.js"></script>
+</head>
+
+<body>
+    <div class="overlay top-right">
+        <div id="amountToDraw"></div>
+        <label for="lineWidth">linewidth:</label>
+        <input type="range" min="1" max="10" step="1" id="lineWidth">
+    </div>
+    <div class="overlay middle" >
+        <div id="go">
+            Go
+        </div>
+        <div id="loadedPaths">
+        </div>
+      <a  id="stravaButtonLink"><div class="stravaButton">Get Activities from Strava</div></a>
+    </div>
+</body>
+
+</html>
